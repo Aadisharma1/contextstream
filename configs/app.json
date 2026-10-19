@@ -1,0 +1,18 @@
+{
+  "embedding": {
+    "provider": "local",
+    "dim": 256
+  },
+  "vector_store": {
+    "backend": "memory"
+  },
+  "llm": {
+    "provider": "mock",
+    "stream_delay_ms": 5
+  },
+  "retrieval": {
+    "chunk_max_chars": 500,
+    "chunk_overlap": 80,
+    "top_k": 3
+  }
+}

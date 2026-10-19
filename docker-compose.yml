@@ -1,0 +1,21 @@
+services:
+  api:
+    build: .
+    command: ["python", "scripts/serve.py", "--host", "0.0.0.0", "--port", "8000"]
+    ports:
+      - "8200:8000"
+    environment:
+      - CONTEXTSTREAM_CONFIG=/app/configs/app.json
+
+  web:
+    image: node:20-alpine
+    working_dir: /web
+    command: sh -c "npm install && npm run dev"
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_WS_URL=ws://127.0.0.1:8200/ws
+    volumes:
+      - ./frontend:/web
+    depends_on:
+      - api

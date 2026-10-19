@@ -1,0 +1,113 @@
+:root {
+  --bg: #0b1020;
+  --panel: #141a30;
+  --text: #e7ecf5;
+  --muted: #8b93a7;
+  --accent: #5b8cff;
+  --ok: #3ecf8e;
+  --warn: #ffb020;
+  --bad: #ff5d5d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+h1 {
+  font-size: 1.4rem;
+  margin: 0 0 4px;
+}
+
+.status {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.badge.ok { background: rgba(62, 207, 142, 0.15); color: var(--ok); }
+.badge.warn { background: rgba(255, 176, 32, 0.15); color: var(--warn); }
+.badge.bad { background: rgba(255, 93, 93, 0.15); color: var(--bad); }
+
+.messages {
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 16px;
+  height: 55vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.msg {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.msg.user { align-self: flex-end; background: var(--accent); color: white; }
+.msg.assistant { align-self: flex-start; background: #1d2540; }
+
+.sources {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.latency {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.input-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.input-row input {
+  flex: 1;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid #2a3352;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.input-row button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.input-row button:disabled { opacity: 0.5; cursor: not-allowed; }

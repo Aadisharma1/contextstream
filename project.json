@@ -1,0 +1,27 @@
+{
+  "name": "contextstream",
+  "description": "Real-time RAG assistant: FastAPI + WebSockets backend with local vector-store fallback, Next.js streaming chat frontend, measured latency",
+  "language": "python",
+  "checks": [
+    {
+      "name": "unit_tests",
+      "cmd": "python -m pytest tests -q",
+      "timeout_sec": 900
+    },
+    {
+      "name": "smoke_test",
+      "cmd": "python scripts/smoke_test.py",
+      "timeout_sec": 600
+    },
+    {
+      "name": "frontend_build",
+      "cmd": "npm run build",
+      "cwd": "frontend",
+      "skip_if_cmd_missing": "npm",
+      "timeout_sec": 900
+    }
+  ],
+  "docker": {
+    "enabled": true
+  }
+}
